@@ -7,9 +7,9 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/github_username/my_launcher",
+  "homepage": "https://github.com/jupyterlab-contrib/jlab-enhanced-launcher",
   "bugs": {
-    "url": "https://github.com/github_username/my_launcher/issues"
+    "url": "https://github.com/jupyterlab-contrib/jlab-enhanced-launcher/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -27,7 +27,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/github_username/my_launcher.git"
+    "url": "https://github.com/jupyterlab-contrib/jlab-enhanced-launcher.git"
   },
   "scripts": {
     "build": "jlpm run build:lib && jlpm run build:labextension:dev",
