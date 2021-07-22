@@ -30,7 +30,7 @@ import { EXTENSION_ID, Launcher, LauncherModel } from './launcher';
  * The command IDs used by the launcher plugin.
  */
 namespace CommandIDs {
-  export const create = 'launcher:my_create';
+  export const create = 'launcher:create';
 }
 
 /**
@@ -64,6 +64,8 @@ async function activate(
   const { commands, shell } = app;
   const trans = translator.load('jupyterlab');
 
+  console.log('[QMAO] activate!!');
+
   let settings: ISettingRegistry.ISettings | null = null;
   if (settingRegistry) {
     try {
@@ -73,6 +75,7 @@ async function activate(
     }
   }
 
+  console.log('[QMAO] ready to create launch model');
   const model = new LauncherModel(settings, state);
 
   if (state) {
@@ -91,6 +94,8 @@ async function activate(
         console.error('Fail to restore launcher usage data', reason);
       });
   }
+
+  console.log('[QMAO] ready to add command');
 
   commands.addCommand(CommandIDs.create, {
     label: trans.__('New Launcher'),
