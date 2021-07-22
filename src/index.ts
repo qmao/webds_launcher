@@ -30,7 +30,7 @@ import { EXTENSION_ID, Launcher, LauncherModel } from './launcher';
  * The command IDs used by the launcher plugin.
  */
 namespace CommandIDs {
-  export const create = 'launcher:create';
+  export const create = 'launcher:my_create';
 }
 
 /**
