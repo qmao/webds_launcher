@@ -131,6 +131,36 @@
   text-overflow: ellipsis;
 }
 
+.jp-NewLauncher-general {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: var(--jp-border-width) solid var(--jp-border-color2);
+  border-radius: var(--jp-border-radius);
+  margin: 0px 2px;
+}
+
+.jp-NewLauncher-general button {
+  border: none;
+  border-radius: unset;
+  background: transparent;
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+}
+
+.jp-NewLauncher-general button:hover {
+  background: var(--jp-layout-color2);
+}
+
+.jp-NewLauncher-general button:disabled {
+  cursor: not-allowed;
+  background: var(--jp-layout-color3);
+}
+
+
 .jp-NewLauncher-view {
   display: flex;
   flex-direction: row;

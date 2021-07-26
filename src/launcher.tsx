@@ -45,7 +45,7 @@ import { Widget } from '@lumino/widgets';
 
 import * as React from 'react';
 
-import { mostUsedIcon, viewListIcon, viewModuleIcon } from './icons';
+import { mostUsedIcon, viewListIcon, viewModuleIcon, wifiIcon, settingsIcon } from './icons';
 
 /**
  * Extension identifier
@@ -489,6 +489,22 @@ export class Launcher extends VDomRenderer<LauncherModel> {
               />
               {/* Trailing / because with use direction rtl for better ellipsis rendering */}
               <h3 title={this.cwd}>{`${this.cwd}/`}</h3>
+            </div>
+            <div className="jp-NewLauncher-general">
+              <button>
+                <settingsIcon.react
+                  tag="span"
+                  title="Settings view"
+                  elementPosition="center"
+                />
+              </button>
+              <button>
+                <wifiIcon.react
+                  tag="span"
+                  title="Wifi view"
+                  elementPosition="center"
+                />
+              </button>
             </div>
             <div className="jp-NewLauncher-view">
               <button
