@@ -367,37 +367,6 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       }
     );
 
-    // Render the most used items
-    if (this._searchInput === '') {
-      const mostUsedSection = (
-        <div className="jp-NewLauncher-section" key="most-used">
-          <div className="jp-NewLauncher-sectionHeader">
-            <mostUsedIcon.react stylesheet="launcherSection" />
-            <h2 className="jp-NewLauncher-sectionTitle">
-              {this._trans.__('Most Used')}
-            </h2>
-          </div>
-          <div className={`jp-NewLauncher${mode}-cardContainer`}>
-            {toArray(
-              map(
-                mostUsedItems.slice(0, this.model.nRecentCards),
-                (item: INewLauncher.IItemOptions) => {
-                  return Card(
-                    KERNEL_CATEGORIES.indexOf(item.category || 'Other') > -1,
-                    [item],
-                    this,
-                    this._commands,
-                    this._trans,
-                    this._callback
-                  );
-                }
-              )
-            )}
-          </div>
-        </div>
-      );
-      sections.push(mostUsedSection);
-    }
 
     // Now create the sections for each category
     orderedCategories.forEach(cat => {
@@ -414,15 +383,23 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       const iconClass = this._commands.iconClass(item.command, args);
       const _icon = this._commands.icon(item.command, args);
       const icon = _icon === iconClass ? undefined : _icon;
+	  
+	  const webds = item.category === 'WebDS' ? true : false;
 
       const section = (
         <div className="jp-NewLauncher-section" key={cat}>
           <div className="jp-NewLauncher-sectionHeader">
-            <LabIcon.resolveReact
-              icon={icon}
-              iconClass={classes(iconClass, 'jp-Icon-cover')}
-              stylesheet="launcherSection"
-            />
+		    {
+			 webds ? (
+               <mostUsedIcon.react stylesheet="launcherSection" />
+			 ) : (
+               <LabIcon.resolveReact
+                 icon={icon}
+                 iconClass={classes(iconClass, 'jp-Icon-cover')}
+                 stylesheet="launcherSection"
+               />
+		     )
+		   }
             <h2 className="jp-NewLauncher-sectionTitle">
               {this._trans.__(cat)}
             </h2>
@@ -459,6 +436,40 @@ export class Launcher extends VDomRenderer<LauncherModel> {
       );
       sections.push(section);
     });
+
+
+    // Render the most used items
+    if (this._searchInput === '') {
+      const mostUsedSection = (
+        <div className="jp-NewLauncher-section" key="most-used">
+          <div className="jp-NewLauncher-sectionHeader">
+            <mostUsedIcon.react stylesheet="launcherSection" />
+            <h2 className="jp-NewLauncher-sectionTitle">
+              {this._trans.__('Favorite')}
+            </h2>
+          </div>
+          <div className={`jp-NewLauncher${mode}-cardContainer`}>
+            {toArray(
+              map(
+                mostUsedItems.slice(0, this.model.nRecentCards),
+                (item: INewLauncher.IItemOptions) => {
+                  return Card(
+                    KERNEL_CATEGORIES.indexOf(item.category || 'Other') > -1,
+                    [item],
+                    this,
+                    this._commands,
+                    this._trans,
+                    this._callback
+                  );
+                }
+              )
+            )}
+          </div>
+        </div>
+      );
+      sections.push(mostUsedSection);
+    }
+
 
     // Wrap the sections in body and content divs.
     return (
@@ -727,11 +738,20 @@ function Card(
       >
         {label}
       </div>
-      <div
-        className={`jp-NewLauncher-options-wrapper jp-NewLauncher${mode}-Cell`}
-      >
-        <div className="jp-NewLauncher-options">{getOptions(items)}</div>
-      </div>
+      {
+        kernel ? (
+          <div
+             className={`jp-NewLauncher-options-wrapper jp-NewLauncher${mode}-Cell`}
+          >
+            <div className="jp-NewLauncher-options">{getOptions(items)}</div>
+          </div>
+        ) : (
+          <div
+            className={`jp-NewLauncher-options-wrapper jp-NewLauncher${mode}-Cell`}
+          >
+          </div>
+        )
+     }
     </div>
   );
 }
