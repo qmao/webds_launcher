@@ -6,6 +6,7 @@ import viewModuleSvg from '../style/icons/view_module.svg';
 import webDsSvg from '../style/icons/webds.svg';
 import wifiSvg from '../style/icons/wifi.svg';
 import settingsSvg from '../style/icons/settings.svg';
+import readmeSvg from '../style/icons/readme.svg';
 
 export const mostUsedIcon = new LabIcon({
   name: 'enhLauncher:most-used',
@@ -30,4 +31,8 @@ export const wifiIcon = new LabIcon({
 export const settingsIcon = new LabIcon({
   name: 'enhLauncher:settings',
   svgstr: settingsSvg
+});
+export const readmeIcon = new LabIcon({
+  name: 'enhLauncher:readme',
+  svgstr: readmeSvg
 });

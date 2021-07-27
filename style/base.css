@@ -8,11 +8,11 @@
 :root {
   --jp-private-new-launcher-top-padding: 16px;
   --jp-private-new-launcher-side-padding: 16px;
-  --jp-private-new-launcher-card-size: 130px;
-  --jp-private-new-launcher-card-label-height: 32px;
+  --jp-private-new-launcher-card-size: 80px;
+  --jp-private-new-launcher-card-label-height: 22px;
   --jp-private-new-launcher-card-icon-height: 68px;
-  --jp-private-new-launcher-large-icon-size: 52px;
-  --jp-private-new-launcher-small-icon-size: 32px;
+  --jp-private-new-launcher-large-icon-size: 42px;
+  --jp-private-new-launcher-small-icon-size: 22px;
 }
 
 /* Launcher */

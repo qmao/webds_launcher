@@ -45,7 +45,7 @@ import { Widget } from '@lumino/widgets';
 
 import * as React from 'react';
 
-import { mostUsedIcon, viewListIcon, viewModuleIcon, wifiIcon, settingsIcon } from './icons';
+import { mostUsedIcon, viewListIcon, viewModuleIcon, wifiIcon, settingsIcon, readmeIcon } from './icons';
 
 /**
  * Extension identifier
@@ -513,6 +513,13 @@ export class Launcher extends VDomRenderer<LauncherModel> {
                 <wifiIcon.react
                   tag="span"
                   title="Wifi view"
+                  elementPosition="center"
+                />
+              </button>
+			  <button>
+                <readmeIcon.react
+                  tag="span"
+                  title="Readme view"
                   elementPosition="center"
                 />
               </button>
